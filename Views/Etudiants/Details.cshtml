@@ -1,0 +1,36 @@
+﻿@model FinalOr.Models.Etudiants
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Etudiants</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.niveau)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.niveau)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.filiere)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.filiere.nom_Filier)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.ville)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.ville.id_ville)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model?.etudiantId">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

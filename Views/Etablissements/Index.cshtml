@@ -1,0 +1,81 @@
+﻿@model IEnumerable<FinalOr.Models.Etablissement>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.nom)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Description)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Image)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.formation)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.id_filier)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.niveau)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ville)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.nom)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                    <img src="images/@item.Image" style="width:35px;height:35px">
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.formation.nom_FormationId)
+            </td>
+            <td>
+                    @Html.DisplayFor(modelItem => item.formation.desc_frmt)
+            </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.formation.date_debut)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.formation.date_fin)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.filiere.nom_Filier)
+                </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.niveau)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ville.nom_ville)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.etabId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.etabId">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.etabId ,new{onclick="return confirm('est ce que vous etes sure vous voulez supprimer')">Delete</a>
+
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
