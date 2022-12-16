@@ -13,6 +13,38 @@
       "PackagePath": "staticwebassets\\favicon.ico"
     },
     {
+      "Id": "C:\\Users\\merouane\\source\\repos\\FinalOr\\wwwroot\\images\\0002927a-df31-4397-b2a5-9fd3cc5ffb7d.png",
+      "PackagePath": "staticwebassets\\images\\0002927a-df31-4397-b2a5-9fd3cc5ffb7d.png"
+    },
+    {
+      "Id": "C:\\Users\\merouane\\source\\repos\\FinalOr\\wwwroot\\images\\24d041da-4323-4487-a5fe-8e8ab6492115.jpg",
+      "PackagePath": "staticwebassets\\images\\24d041da-4323-4487-a5fe-8e8ab6492115.jpg"
+    },
+    {
+      "Id": "C:\\Users\\merouane\\source\\repos\\FinalOr\\wwwroot\\images\\DefaultImage.png",
+      "PackagePath": "staticwebassets\\images\\DefaultImage.png"
+    },
+    {
+      "Id": "C:\\Users\\merouane\\source\\repos\\FinalOr\\wwwroot\\images\\d347c17d-10af-430d-8af2-9a7436309452.png",
+      "PackagePath": "staticwebassets\\images\\d347c17d-10af-430d-8af2-9a7436309452.png"
+    },
+    {
+      "Id": "C:\\Users\\merouane\\source\\repos\\FinalOr\\wwwroot\\images\\faafc710-4dec-465c-a9ec-3a716c1f3b35.png",
+      "PackagePath": "staticwebassets\\images\\faafc710-4dec-465c-a9ec-3a716c1f3b35.png"
+    },
+    {
+      "Id": "C:\\Users\\merouane\\source\\repos\\FinalOr\\wwwroot\\images\\user.jpg",
+      "PackagePath": "staticwebassets\\images\\user.jpg"
+    },
+    {
+      "Id": "C:\\Users\\merouane\\source\\repos\\FinalOr\\wwwroot\\images\\user1.jpg",
+      "PackagePath": "staticwebassets\\images\\user1.jpg"
+    },
+    {
+      "Id": "C:\\Users\\merouane\\source\\repos\\FinalOr\\wwwroot\\images\\user2.png",
+      "PackagePath": "staticwebassets\\images\\user2.png"
+    },
+    {
       "Id": "C:\\Users\\merouane\\source\\repos\\FinalOr\\wwwroot\\js\\site.js",
       "PackagePath": "staticwebassets\\js\\site.js"
     },

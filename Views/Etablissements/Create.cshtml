@@ -24,12 +24,12 @@
             </div>
             <div class="form-group">
                 <label asp-for="Image" class="control-label"></label>
-                <input asp-for="Image" class="form-control" />
+                <input type="file" asp-for="Image" class="form-control" />
                 <span asp-validation-for="Image" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="id_formation" class="control-label"></label>
-                <select asp-for="id_formation" class ="form-control" asp-items="ViewBag.id_formation"></select>
+                <select asp-for="id_formation" class="form-control" asp-items="ViewBag.nom_FormationId"></select>
             </div>
             <div class="form-group">
                 <label asp-for="id_filier" class="control-label"></label>
