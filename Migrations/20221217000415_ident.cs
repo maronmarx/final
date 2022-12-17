@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace FinalOr.Migrations
 {
     /// <inheritdoc />
-    public partial class iden : Migration
+    public partial class ident : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -58,13 +58,13 @@ namespace FinalOr.Migrations
                 schema: "HR",
                 columns: table => new
                 {
-                    idfilier = table.Column<int>(name: "id_filier", type: "int", nullable: false)
+                    id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    nomFilier = table.Column<string>(name: "nom_Filier", type: "varchar(200)", nullable: false)
+                    nomFilier = table.Column<string>(name: "nom_Filier", type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Filiere", x => x.idfilier);
+                    table.PrimaryKey("PK_Filiere", x => x.id);
                 });
 
             migrationBuilder.CreateTable(
@@ -74,8 +74,8 @@ namespace FinalOr.Migrations
                 {
                     idformation = table.Column<int>(name: "id_formation", type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    nomFormationId = table.Column<string>(name: "nom_FormationId", type: "varchar(255)", nullable: true),
-                    descfrmt = table.Column<string>(name: "desc_frmt", type: "nvarchar(max)", nullable: false),
+                    nomFormationId = table.Column<string>(name: "nom_FormationId", type: "nvarchar(max)", nullable: true),
+                    descfrmt = table.Column<string>(name: "desc_frmt", type: "nvarchar(max)", nullable: true),
                     datedebut = table.Column<DateTime>(name: "date_debut", type: "datetime2", nullable: false),
                     datefin = table.Column<DateTime>(name: "date_fin", type: "datetime2", nullable: false)
                 },
@@ -91,7 +91,7 @@ namespace FinalOr.Migrations
                 {
                     idville = table.Column<int>(name: "id_ville", type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    nomville = table.Column<string>(name: "nom_ville", type: "varchar(200)", nullable: true)
+                    nomville = table.Column<string>(name: "nom_ville", type: "nvarchar(max)", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -144,8 +144,8 @@ namespace FinalOr.Migrations
                 name: "AspNetUserLogins",
                 columns: table => new
                 {
-                    LoginProvider = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    ProviderKey = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    LoginProvider = table.Column<string>(type: "nvarchar(128)", maxLength: 128, nullable: false),
+                    ProviderKey = table.Column<string>(type: "nvarchar(128)", maxLength: 128, nullable: false),
                     ProviderDisplayName = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     UserId = table.Column<string>(type: "nvarchar(450)", nullable: false)
                 },
@@ -189,8 +189,8 @@ namespace FinalOr.Migrations
                 columns: table => new
                 {
                     UserId = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    LoginProvider = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    Name = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    LoginProvider = table.Column<string>(type: "nvarchar(128)", maxLength: 128, nullable: false),
+                    Name = table.Column<string>(type: "nvarchar(128)", maxLength: 128, nullable: false),
                     Value = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
                 constraints: table =>
@@ -211,36 +211,23 @@ namespace FinalOr.Migrations
                 {
                     etabId = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    nom = table.Column<string>(type: "varchar(200)", nullable: false),
+                    nom = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Description = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Image = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     idformation = table.Column<int>(name: "id_formation", type: "int", nullable: true),
-                    idfilier = table.Column<int>(name: "id_filier", type: "int", nullable: true),
-                    idfilier0 = table.Column<int>(name: "id filier", type: "int", nullable: true),
-                    niveau = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    idville = table.Column<int>(name: "id_ville", type: "int", nullable: true)
+                    Formationidformation = table.Column<int>(name: "Formationid_formation", type: "int", nullable: true),
+                    nomFilier = table.Column<string>(name: "nom_Filier", type: "nvarchar(max)", nullable: true),
+                    nomville = table.Column<string>(name: "nom_ville", type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Etablissement", x => x.etabId);
                     table.ForeignKey(
-                        name: "FK_Etablissement_Filiere_id filier",
-                        column: x => x.idfilier0,
-                        principalSchema: "HR",
-                        principalTable: "Filiere",
-                        principalColumn: "id_filier");
-                    table.ForeignKey(
-                        name: "FK_Etablissement_Formation_id_formation",
-                        column: x => x.idformation,
+                        name: "FK_Etablissement_Formation_Formationid_formation",
+                        column: x => x.Formationidformation,
                         principalSchema: "HR",
                         principalTable: "Formation",
                         principalColumn: "id_formation");
-                    table.ForeignKey(
-                        name: "FK_Etablissement_Ville_id_ville",
-                        column: x => x.idville,
-                        principalSchema: "HR",
-                        principalTable: "Ville",
-                        principalColumn: "id_ville");
                 });
 
             migrationBuilder.CreateTable(
@@ -250,19 +237,16 @@ namespace FinalOr.Migrations
                 {
                     etudiantId = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    niveau = table.Column<string>(type: "varchar(200)", nullable: false),
-                    idfilier = table.Column<int>(name: "id_filier", type: "int", nullable: true),
+                    nom = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    prenom = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    email = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    niveau = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Filier = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     idville = table.Column<int>(name: "id_ville", type: "int", nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Etudiants", x => x.etudiantId);
-                    table.ForeignKey(
-                        name: "FK_Etudiants_Filiere_id_filier",
-                        column: x => x.idfilier,
-                        principalSchema: "HR",
-                        principalTable: "Filiere",
-                        principalColumn: "id_filier");
                     table.ForeignKey(
                         name: "FK_Etudiants_Ville_id_ville",
                         column: x => x.idville,
@@ -311,28 +295,10 @@ namespace FinalOr.Migrations
                 filter: "[NormalizedUserName] IS NOT NULL");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Etablissement_id filier",
+                name: "IX_Etablissement_Formationid_formation",
                 schema: "HR",
                 table: "Etablissement",
-                column: "id filier");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Etablissement_id_formation",
-                schema: "HR",
-                table: "Etablissement",
-                column: "id_formation");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Etablissement_id_ville",
-                schema: "HR",
-                table: "Etablissement",
-                column: "id_ville");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Etudiants_id_filier",
-                schema: "HR",
-                table: "Etudiants",
-                column: "id_filier");
+                column: "Formationid_formation");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Etudiants_id_ville",
@@ -368,6 +334,10 @@ namespace FinalOr.Migrations
                 schema: "HR");
 
             migrationBuilder.DropTable(
+                name: "Filiere",
+                schema: "HR");
+
+            migrationBuilder.DropTable(
                 name: "AspNetRoles");
 
             migrationBuilder.DropTable(
@@ -375,10 +345,6 @@ namespace FinalOr.Migrations
 
             migrationBuilder.DropTable(
                 name: "Formation",
-                schema: "HR");
-
-            migrationBuilder.DropTable(
-                name: "Filiere",
                 schema: "HR");
 
             migrationBuilder.DropTable(

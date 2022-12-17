@@ -14,18 +14,35 @@
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="etudiantId" />
             <div class="form-group">
+                <label asp-for="nom" class="control-label"></label>
+                <input asp-for="nom" class="form-control" />
+                <span asp-validation-for="nom" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="prenom" class="control-label"></label>
+                <input asp-for="prenom" class="form-control" />
+                <span asp-validation-for="prenom" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="email" class="control-label"></label>
+                <input asp-for="email" class="form-control" />
+                <span asp-validation-for="email" class="text-danger"></span>
+            </div>
+            <div class="form-group">
                 <label asp-for="niveau" class="control-label"></label>
                 <input asp-for="niveau" class="form-control" />
                 <span asp-validation-for="niveau" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="id_filier" class="control-label"></label>
-                <select asp-for="id_filier" class="form-control" asp-items="ViewBag.id_filier"></select>
-                <span asp-validation-for="id_filier" class="text-danger"></span>
+                <label asp-for="Filier" class="control-label"></label>
+                <input asp-for="Filier" class="form-control" />
+                <span asp-validation-for="Filier" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="id_ville" class="control-label"></label>
-                <select asp-for="id_ville" class="form-control" asp-items="ViewBag.id_ville"></select>
+                <select asp-for="id_ville" asp-items="@(new SelectList(ViewBag.villes,"id_ville","nom_ville"))">
+                    <option value="">Select ville Name ... </option>
+                </select>
                 <span asp-validation-for="id_ville" class="text-danger"></span>
             </div>
             <div class="form-group">

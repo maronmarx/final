@@ -24,46 +24,39 @@ namespace FinalOr.Migrations
 
             modelBuilder.Entity("FinalOr.Models.Etablissement", b =>
                 {
-                    b.Property<int?>("etabId")
+                    b.Property<int>("etabId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int?>("etabId"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("etabId"));
 
                     b.Property<string>("Description")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int?>("Formationid_formation")
+                        .HasColumnType("int");
+
                     b.Property<string>("Image")
                         .HasColumnType("nvarchar(max)");
-
-                    b.Property<int?>("id filier")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("id_filier")
-                        .HasColumnType("int");
 
                     b.Property<int?>("id_formation")
                         .HasColumnType("int");
 
-                    b.Property<int?>("id_ville")
-                        .HasColumnType("int");
-
-                    b.Property<string>("niveau")
+                    b.Property<string>("nom")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("nom")
+                    b.Property<string>("nom_Filier")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("nom_ville")
                         .IsRequired()
-                        .HasColumnType("varchar(200)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("etabId");
 
-                    b.HasIndex("id filier");
-
-                    b.HasIndex("id_formation");
-
-                    b.HasIndex("id_ville");
+                    b.HasIndex("Formationid_formation");
 
                     b.ToTable("Etablissement", "HR");
                 });
@@ -76,19 +69,29 @@ namespace FinalOr.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int?>("etudiantId"));
 
-                    b.Property<int?>("id_filier")
-                        .HasColumnType("int");
+                    b.Property<string>("Filier")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("email")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int?>("id_ville")
                         .HasColumnType("int");
 
                     b.Property<string>("niveau")
                         .IsRequired()
-                        .HasColumnType("varchar(200)");
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("nom")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("prenom")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("etudiantId");
-
-                    b.HasIndex("id_filier");
 
                     b.HasIndex("id_ville");
 
@@ -97,17 +100,17 @@ namespace FinalOr.Migrations
 
             modelBuilder.Entity("FinalOr.Models.Filiere", b =>
                 {
-                    b.Property<int>("id_filier")
+                    b.Property<int>("id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("id_filier"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("id"));
 
                     b.Property<string>("nom_Filier")
                         .IsRequired()
-                        .HasColumnType("varchar(200)");
+                        .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("id_filier");
+                    b.HasKey("id");
 
                     b.ToTable("Filiere", "HR");
                 });
@@ -127,11 +130,10 @@ namespace FinalOr.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("desc_frmt")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("nom_FormationId")
-                        .HasColumnType("varchar(255)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("id_formation");
 
@@ -147,7 +149,7 @@ namespace FinalOr.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("id_ville"));
 
                     b.Property<string>("nom_ville")
-                        .HasColumnType("varchar(200)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("id_ville");
 
@@ -299,10 +301,12 @@ namespace FinalOr.Migrations
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<string>", b =>
                 {
                     b.Property<string>("LoginProvider")
-                        .HasColumnType("nvarchar(450)");
+                        .HasMaxLength(128)
+                        .HasColumnType("nvarchar(128)");
 
                     b.Property<string>("ProviderKey")
-                        .HasColumnType("nvarchar(450)");
+                        .HasMaxLength(128)
+                        .HasColumnType("nvarchar(128)");
 
                     b.Property<string>("ProviderDisplayName")
                         .HasColumnType("nvarchar(max)");
@@ -339,10 +343,12 @@ namespace FinalOr.Migrations
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("LoginProvider")
-                        .HasColumnType("nvarchar(450)");
+                        .HasMaxLength(128)
+                        .HasColumnType("nvarchar(128)");
 
                     b.Property<string>("Name")
-                        .HasColumnType("nvarchar(450)");
+                        .HasMaxLength(128)
+                        .HasColumnType("nvarchar(128)");
 
                     b.Property<string>("Value")
                         .HasColumnType("nvarchar(max)");
@@ -354,38 +360,20 @@ namespace FinalOr.Migrations
 
             modelBuilder.Entity("FinalOr.Models.Etablissement", b =>
                 {
-                    b.HasOne("FinalOr.Models.Filiere", "filiere")
+                    b.HasOne("FinalOr.Models.Formation", "Formation")
                         .WithMany()
-                        .HasForeignKey("id filier");
+                        .HasForeignKey("Formationid_formation");
 
-                    b.HasOne("FinalOr.Models.Formation", "formation")
-                        .WithMany()
-                        .HasForeignKey("id_formation");
-
-                    b.HasOne("FinalOr.Models.Ville", "ville")
-                        .WithMany()
-                        .HasForeignKey("id_ville");
-
-                    b.Navigation("filiere");
-
-                    b.Navigation("formation");
-
-                    b.Navigation("ville");
+                    b.Navigation("Formation");
                 });
 
             modelBuilder.Entity("FinalOr.Models.Etudiants", b =>
                 {
-                    b.HasOne("FinalOr.Models.Filiere", "filiere")
-                        .WithMany()
-                        .HasForeignKey("id_filier");
-
-                    b.HasOne("FinalOr.Models.Ville", "ville")
+                    b.HasOne("FinalOr.Models.Ville", "Ville")
                         .WithMany()
                         .HasForeignKey("id_ville");
 
-                    b.Navigation("filiere");
-
-                    b.Navigation("ville");
+                    b.Navigation("Ville");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>

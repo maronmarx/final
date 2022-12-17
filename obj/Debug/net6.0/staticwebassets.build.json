@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "6H3MlM+LdhavSVBdHK7lelVcEzEcl2wWc7Vur9cZHBs=",
+  "Hash": "oXjhB5jfXeLupJ+lRwP9FXSJHrdXgGC77E7KST/GGeM=",
   "Source": "FinalOr",
   "BasePath": "_content/FinalOr",
   "Mode": "Default",
@@ -1122,6 +1122,23 @@
       "OriginalItemSpec": "wwwroot\\images\\0002927a-df31-4397-b2a5-9fd3cc5ffb7d.png"
     },
     {
+      "Identity": "C:\\Users\\merouane\\source\\repos\\FinalOr\\wwwroot\\images\\09763174-1826-4f35-81cf-4b815ab5656c.png",
+      "SourceId": "FinalOr",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\merouane\\source\\repos\\FinalOr\\wwwroot\\",
+      "BasePath": "_content/FinalOr",
+      "RelativePath": "images/09763174-1826-4f35-81cf-4b815ab5656c.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\09763174-1826-4f35-81cf-4b815ab5656c.png"
+    },
+    {
       "Identity": "C:\\Users\\merouane\\source\\repos\\FinalOr\\wwwroot\\images\\24d041da-4323-4487-a5fe-8e8ab6492115.jpg",
       "SourceId": "FinalOr",
       "SourceType": "Discovered",
@@ -1137,6 +1154,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\images\\24d041da-4323-4487-a5fe-8e8ab6492115.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\merouane\\source\\repos\\FinalOr\\wwwroot\\images\\719aacef-7ef9-44f2-a50d-d0866652fb60.jpg",
+      "SourceId": "FinalOr",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\merouane\\source\\repos\\FinalOr\\wwwroot\\",
+      "BasePath": "_content/FinalOr",
+      "RelativePath": "images/719aacef-7ef9-44f2-a50d-d0866652fb60.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\719aacef-7ef9-44f2-a50d-d0866652fb60.jpg"
     },
     {
       "Identity": "C:\\Users\\merouane\\source\\repos\\FinalOr\\wwwroot\\images\\d347c17d-10af-430d-8af2-9a7436309452.png",
@@ -1171,6 +1205,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\images\\DefaultImage.png"
+    },
+    {
+      "Identity": "C:\\Users\\merouane\\source\\repos\\FinalOr\\wwwroot\\images\\ea38b6b1-2d97-4386-9743-57fc61d90447.png",
+      "SourceId": "FinalOr",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\merouane\\source\\repos\\FinalOr\\wwwroot\\",
+      "BasePath": "_content/FinalOr",
+      "RelativePath": "images/ea38b6b1-2d97-4386-9743-57fc61d90447.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\ea38b6b1-2d97-4386-9743-57fc61d90447.png"
     },
     {
       "Identity": "C:\\Users\\merouane\\source\\repos\\FinalOr\\wwwroot\\images\\faafc710-4dec-465c-a9ec-3a716c1f3b35.png",

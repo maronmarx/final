@@ -17,8 +17,16 @@
       "PackagePath": "staticwebassets\\images\\0002927a-df31-4397-b2a5-9fd3cc5ffb7d.png"
     },
     {
+      "Id": "C:\\Users\\merouane\\source\\repos\\FinalOr\\wwwroot\\images\\09763174-1826-4f35-81cf-4b815ab5656c.png",
+      "PackagePath": "staticwebassets\\images\\09763174-1826-4f35-81cf-4b815ab5656c.png"
+    },
+    {
       "Id": "C:\\Users\\merouane\\source\\repos\\FinalOr\\wwwroot\\images\\24d041da-4323-4487-a5fe-8e8ab6492115.jpg",
       "PackagePath": "staticwebassets\\images\\24d041da-4323-4487-a5fe-8e8ab6492115.jpg"
+    },
+    {
+      "Id": "C:\\Users\\merouane\\source\\repos\\FinalOr\\wwwroot\\images\\719aacef-7ef9-44f2-a50d-d0866652fb60.jpg",
+      "PackagePath": "staticwebassets\\images\\719aacef-7ef9-44f2-a50d-d0866652fb60.jpg"
     },
     {
       "Id": "C:\\Users\\merouane\\source\\repos\\FinalOr\\wwwroot\\images\\DefaultImage.png",
@@ -27,6 +35,10 @@
     {
       "Id": "C:\\Users\\merouane\\source\\repos\\FinalOr\\wwwroot\\images\\d347c17d-10af-430d-8af2-9a7436309452.png",
       "PackagePath": "staticwebassets\\images\\d347c17d-10af-430d-8af2-9a7436309452.png"
+    },
+    {
+      "Id": "C:\\Users\\merouane\\source\\repos\\FinalOr\\wwwroot\\images\\ea38b6b1-2d97-4386-9743-57fc61d90447.png",
+      "PackagePath": "staticwebassets\\images\\ea38b6b1-2d97-4386-9743-57fc61d90447.png"
     },
     {
       "Id": "C:\\Users\\merouane\\source\\repos\\FinalOr\\wwwroot\\images\\faafc710-4dec-465c-a9ec-3a716c1f3b35.png",

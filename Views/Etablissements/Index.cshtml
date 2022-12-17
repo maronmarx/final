@@ -22,16 +22,21 @@
                 @Html.DisplayNameFor(model => model.Image)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.formation)
+                @Html.DisplayNameFor(model => model.Formation.nom_FormationId)
+            </th><th>
+                @Html.DisplayNameFor(model => model.Formation.desc_frmt)
+            </th><th>
+                @Html.DisplayNameFor(model => model.Formation.date_debut)
+            </th><th>
+                @Html.DisplayNameFor(model => model.Formation.date_fin)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.id_filier)
+                @Html.DisplayNameFor(model => model.nom_Filier)
             </th>
+
+            
             <th>
-                @Html.DisplayNameFor(model => model.niveau)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ville)
+                @Html.DisplayNameFor(model => model.nom_ville)
             </th>
             <th></th>
         </tr>
@@ -39,41 +44,38 @@
     <tbody>
 @foreach (var item in Model) {
         <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.nom)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Description)
-                </td>
-                <td>
+            <td>
+                @Html.DisplayFor(modelItem => item.nom)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
                     <img src="images/@item.Image" style="width:35px;height:35px">
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.formation.nom_FormationId)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.formation.desc_frmt)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.formation.date_debut)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.formation.date_fin)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.filiere.nom_Filier)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.niveau)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.ville.id_ville)
-                </td>
-                <td>
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Formation.nom_FormationId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Formation.desc_frmt)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Formation.date_debut)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Formation.date_fin)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.nom_Filier)
+            </td>
+            
+            <td>
+                @Html.DisplayFor(modelItem => item.nom_ville)
+            </td>
+            <td>
                 <a asp-action="Edit" asp-route-id="@item.etabId">Edit</a> |
                 <a asp-action="Details" asp-route-id="@item.etabId">Details</a> |
-                    <a asp-action="Delete" asp-route-id="@item.etabId ,new{onclick="return confirm('est ce que vous etes sure vous voulez supprimer')">Delete</a>
-
+                    <a asp-action="Delete" asp-route-id="@item.etabId">Delete</a>
             </td>
         </tr>
 }

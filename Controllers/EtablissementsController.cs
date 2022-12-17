@@ -22,7 +22,7 @@ namespace FinalOr.Controllers
         // GET: Etablissements
         public async Task<IActionResult> Index()
         {
-            var applicationDbContext = _context.etablissements.Include(e => e.formation).Include(e => e.ville);
+            var applicationDbContext = _context.etablissements.Include(f => f.Formation).OrderBy(f => f.nom);
             return View(await applicationDbContext.ToListAsync());
         }
 
@@ -35,8 +35,7 @@ namespace FinalOr.Controllers
             }
 
             var etablissement = await _context.etablissements
-                .Include(e => e.formation)
-                .Include(e => e.ville)
+                .Include(f => f.Formation).OrderBy(f => f.nom)
                 .FirstOrDefaultAsync(m => m.etabId == id);
             if (etablissement == null)
             {
@@ -49,8 +48,7 @@ namespace FinalOr.Controllers
         // GET: Etablissements/Create
         public IActionResult Create()
         {
-            ViewData["id_formation"] = new SelectList(_context.formations, "id_formation", "id_formation");
-            ViewData["id_ville"] = new SelectList(_context.villes, "id_ville", "id_ville");
+            ViewBag.formations = _context.formations.OrderBy(f => f.nom_FormationId).ToList();
             return View();
         }
 
@@ -59,73 +57,45 @@ namespace FinalOr.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("etabId,nom,Description,Image,id_formation,id_filier,niveau,id_ville")] Etablissement etablissement)
+        public async Task<IActionResult> Create(Etablissement etablissement)
         {
             Upload(etablissement);
             if (ModelState.IsValid)
             {
-                _context.Add(etablissement);
+                _context.etablissements.Add(etablissement);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["id_formation"] = new SelectList(_context.formations, "id_formation", "id_formation", etablissement.id_formation);
-            ViewData["id_ville"] = new SelectList(_context.villes, "id_ville", "id_ville", etablissement.id_ville);
+
+            ViewBag.formations = _context.formations.OrderBy(f => f.nom_FormationId).ToListAsync();
             return View(etablissement);
         }
 
         // GET: Etablissements/Edit/5
-        public async Task<IActionResult> Edit(int? id)
+        public IActionResult Edit(int? id)
         {
-            if (id == null || _context.etablissements == null)
-            {
-                return NotFound();
-            }
+            
 
-            var etablissement = await _context.etablissements.FindAsync(id);
-            if (etablissement == null)
-            {
-                return NotFound();
-            }
-            ViewData["id_formation"] = new SelectList(_context.formations, "id_formation", "id_formation", etablissement.id_formation);
-            ViewData["id_ville"] = new SelectList(_context.villes, "id_ville", "id_ville", etablissement.id_ville);
+            ViewBag.formations = _context.formations.OrderBy(f => f.nom_FormationId).ToList();
+            var etablissement = _context.etablissements.Find(id);
             return View(etablissement);
         }
 
-        // POST: Etablissements/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int? id, [Bind("etabId,nom,Description,Image,id_formation,id_filier,niveau,id_ville")] Etablissement etablissement)
+        public IActionResult Edit(Etablissement etablissement)
         {
-            if (id != etablissement.etabId)
-            {
-                return NotFound();
-            }
-
+           
             Upload(etablissement);
             if (ModelState.IsValid)
             {
-                try
-                {
-                    _context.Update(etablissement);
-                    await _context.SaveChangesAsync();
-                }
-                catch (DbUpdateConcurrencyException)
-                {
-                    if (!EtablissementExists(etablissement.etabId))
-                    {
-                        return NotFound();
-                    }
-                    else
-                    {
-                        throw;
-                    }
-                }
+               
+                _context.etablissements.Update(etablissement);
+                _context.SaveChanges();   
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["id_formation"] = new SelectList(_context.formations, "id_formation", "id_formation", etablissement.id_formation);
-            ViewData["id_ville"] = new SelectList(_context.villes, "id_ville", "id_ville", etablissement.id_ville);
+
+            ViewBag.formations = _context.formations.OrderBy(f => f.nom_FormationId).ToList();
             return View(etablissement);
         }
 
@@ -138,8 +108,7 @@ namespace FinalOr.Controllers
             }
 
             var etablissement = await _context.etablissements
-                .Include(e => e.formation)
-                .Include(e => e.ville)
+                .Include(v => v.Formation)
                 .FirstOrDefaultAsync(m => m.etabId == id);
             if (etablissement == null)
             {

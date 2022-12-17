@@ -12,6 +12,18 @@ namespace FinalOr.Data
         }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            /*modelBuilder.Entity<Etablissement>()
+
+                  .HasForeignKey(e => e.id_formation)
+                  .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<Etablissement>()
+                  .HasForeignKey(f => f.id_filier)
+                  .WillCascadeOnDelete(false);
+            modelBuilder.Entity<Etablissement>()
+                  .HasForeignKey(v => v.id_ville)
+                  .WillCascadeOnDelete(false);*/
+
             base.OnModelCreating(modelBuilder);
             
         }
